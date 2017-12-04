@@ -1,0 +1,41 @@
+{
+  "name": "react-redux-client-template",
+  "description": "A template for a react-redux client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile": "webpack",
+    "compile:watch": "webpack -w",
+    "test": "mocha --require babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
+    "test:watch": "npm run test -- --watch"
+  },
+  "keywords": [],
+  "author": "Louis Racicot <info@louisracicot.com>",
+  "license": "MIT",
+  "dependencies": {
+    "core-decorators": "^0.20.0",
+    "express": "^4.16.2",
+    "immutable": "^3.8.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "8.0.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "chai": "^4.1.2",
+    "chai-immutable": "^1.6.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "jsdom": "^11.5.1",
+    "mocha": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "webpack": "^3.9.1"
+  }
+}

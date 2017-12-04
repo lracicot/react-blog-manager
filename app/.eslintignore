@@ -1,0 +1,4 @@
+node_modules/
+public/bundle.js
+index.js
+webpack.config.js
