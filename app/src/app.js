@@ -1,14 +1,10 @@
-import { Map } from 'immutable';
 import configureStore from './configureStore';
+import { setState } from './actions/app.actions';
 
 /**
   * Index - Open the application
   */
 (async () => {
   const store = configureStore();
-
-  store.dispatch({
-    type: 'SET_STATE',
-    state: Map(),
-  });
+  store.dispatch(setState());
 })();
