@@ -1,6 +1,6 @@
 
 
-export default function appReducers(state, action) {
+export default function AppReducers(state, action) {
   switch (action.type) {
   case 'SET_STATE':
     return action.state;

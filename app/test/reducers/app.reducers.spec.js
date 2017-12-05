@@ -1,9 +1,9 @@
 import { Map } from 'immutable';
 import { expect } from 'chai';
 
-import appReducers from '../../src/reducers/appReducers';
+import AppReducers from '../../src/reducers/app.reducers';
 
-describe('appReducers', () => {
+describe('App reducers', () => {
   it('handles SET_STATE', () => {
     const initialState = Map();
     const newState = Map({
@@ -13,7 +13,7 @@ describe('appReducers', () => {
       type: 'SET_STATE',
       state: newState,
     };
-    const nextState = appReducers(initialState, action);
+    const nextState = AppReducers(initialState, action);
 
     expect(nextState).to.equal(newState);
   });
