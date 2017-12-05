@@ -1,28 +1,33 @@
+import * as Action from '../consts';
 
-export function createPostSuccess(post) {
+export function createPostSuccess(data) {
+  const { post } = data;
   return {
-    type: 'CREATE_POST_SUCCESS',
+    type: Action.CREATE_POST_SUCCESS,
     post,
   };
 }
 
-export function retreivePostsSuccess(posts) {
+export function retreivePostsSuccess(data) {
+  const { posts } = data;
   return {
-    type: 'RETREIVE_POSTS_SUCCESS',
+    type: Action.RETREIVE_POSTS_SUCCESS,
     posts,
   };
 }
 
-export function updatePostSuccess(post) {
+export function updatePostSuccess(data) {
+  const { post } = data;
   return {
-    type: 'UPDATE_POST_SUCCESS',
+    type: Action.UPDATE_POST_SUCCESS,
     post,
   };
 }
 
-export function deletePostSuccess(postId) {
+export function deletePostSuccess(data) {
+  const { postId } = data;
   return {
-    type: 'DELETE_POST_SUCCESS',
+    type: Action.DELETE_POST_SUCCESS,
     postId,
   };
 }

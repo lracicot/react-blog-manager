@@ -1,3 +1,6 @@
+import { Map } from 'immutable';
+
+import * as Action from '../consts';
 
 
 function updatePostSucess(state, post) {
@@ -12,11 +15,11 @@ function updatePostSucess(state, post) {
   return state;
 }
 
-export default function AppReducers(state, action) {
+export default function PostReducers(state = Map(), action) {
   const { type } = action;
 
   switch (type) {
-  case 'CREATE_POST_SUCCESS':
+  case Action.CREATE_POST_SUCCESS:
     return state.setIn(
       ['data', 'posts'],
       state.getIn(['data', 'posts']).filter(
@@ -24,13 +27,13 @@ export default function AppReducers(state, action) {
       ).push(action.post),
     );
 
-  case 'RETREIVE_POSTS_SUCCESS':
+  case Action.RETREIVE_POSTS_SUCCESS:
     return state.setIn(['data', 'posts'], action.posts);
 
-  case 'UPDATE_POST_SUCCESS':
+  case Action.UPDATE_POST_SUCCESS:
     return updatePostSucess(state, action.post);
 
-  case 'DELETE_POST_SUCCESS':
+  case Action.DELETE_POST_SUCCESS:
     return state.setIn(
       ['data', 'posts'],
       state.getIn(['data', 'posts']).filter(

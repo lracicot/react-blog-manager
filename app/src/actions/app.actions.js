@@ -1,6 +1,7 @@
 import { Map } from 'immutable';
 
-export function setState(state = Map()) {
+
+export function setState(state) {
   return {
     type: 'SET_STATE',
     state,

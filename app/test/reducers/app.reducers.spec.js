@@ -1,3 +1,4 @@
+
 import { Map } from 'immutable';
 import { expect } from 'chai';
 

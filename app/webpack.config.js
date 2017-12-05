@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry:'./src/app.js',
+  entry: ['babel-polyfill', './src/app.js'],
   output: {
     filename:'bundle.js',
     path: __dirname + '/public'
@@ -12,7 +12,8 @@ module.exports = {
       exclude: /node_modules/,
       loader:'babel-loader',
       options: {
-        presets: ['react', 'env', 'stage-1']
+        presets: ['react', 'env', 'stage-1'],
+        plugins: ["transform-decorators-legacy"]
       }
     }]
   }
