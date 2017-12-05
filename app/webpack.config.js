@@ -13,7 +13,7 @@ module.exports = {
       loader:'babel-loader',
       options: {
         presets: ['react', 'env', 'stage-1'],
-        plugins: ["transform-decorators-legacy"]
+        plugins: ["transform-decorators-legacy", ["import", { "libraryName": "antd", "style": true }]]
       }
     }]
   }
