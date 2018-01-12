@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
 
-import * as Action from '../consts';
+import { postTypes as Action } from '../consts';
 
 
 function updatePostSucess(state, post) {

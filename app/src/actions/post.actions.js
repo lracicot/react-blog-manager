@@ -1,4 +1,4 @@
-import * as Action from '../consts';
+import { postTypes as Action } from '../consts';
 
 export function createPostSuccess(data) {
   const { post } = data;

@@ -1,1 +1,1 @@
-export * from './post';
+export * as postTypes from './post';

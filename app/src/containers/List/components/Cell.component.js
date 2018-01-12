@@ -4,26 +4,23 @@ import PropTypes from 'prop-types';
 
 
 /**
-  * PostListing - A component that show a post in a list
+  * PostListing - A component that show a cell in a list
   * @extends PureComponent
   */
 @autobind
-class PostListing extends PureComponent {
+class Cell extends PureComponent {
   render() {
     const { children } = this.props;
     return (
-      <div>
+      <div className="backendui__list__cell">
         {children}
       </div>
     );
   }
 }
 
-PostListing.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+Cell.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default PostListing;
+export default Cell;

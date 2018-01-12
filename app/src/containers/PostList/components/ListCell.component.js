@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 
 /**
-  * PostListing - A component that show a post in a list
+  * PostListing - A component that show a cell in a list
   * @extends PureComponent
   */
 @autobind
-class PostListing extends PureComponent {
+class ListCell extends PureComponent {
   render() {
     const { children } = this.props;
     return (
@@ -19,11 +19,8 @@ class PostListing extends PureComponent {
   }
 }
 
-PostListing.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+ListCell.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default PostListing;
+export default ListCell;

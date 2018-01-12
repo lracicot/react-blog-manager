@@ -4,26 +4,23 @@ import PropTypes from 'prop-types';
 
 
 /**
-  * PostListing - A component that show a post in a list
+  * Row - A component that shows a row in a list
   * @extends PureComponent
   */
 @autobind
-class PostListing extends PureComponent {
+class Row extends PureComponent {
   render() {
     const { children } = this.props;
     return (
-      <div>
+      <div className="backendui__list__row">
         {children}
       </div>
     );
   }
 }
 
-PostListing.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+Row.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default PostListing;
+export default Row;
