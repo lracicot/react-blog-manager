@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 /**
-  * PostListing - A component that show a cell in a list
+  * Cell - A component that show a cell in a list
   * @extends PureComponent
   */
 @autobind
