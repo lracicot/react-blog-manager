@@ -25,9 +25,9 @@ export function updatePostSuccess(data) {
 }
 
 export function deletePostSuccess(data) {
-  const { postId } = data;
+  const { id } = data;
   return {
     type: Action.DELETE_POST_SUCCESS,
-    postId,
+    postId: id,
   };
 }

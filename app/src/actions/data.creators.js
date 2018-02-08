@@ -25,17 +25,19 @@ export function requestDataSuccess(data) {
 
 export function requestData(url, method, sendData, onSuccess, onFailure) {
   return async (dispatch) => {
-    try {
-      const { data } = Axios({ method, url, sendData });
-
-      if (data.success === false) {
-        return dispatch(onFailure(data.error));
-      }
-
-      return dispatch(onSuccess(data));
-    } catch (error) {
-      return dispatch(onFailure(error));
-    }
+    // Disable api for prototype
+    return dispatch(onSuccess(sendData));
+    // try {
+    //   const { data } = Axios({ method, url, sendData });
+    //
+    //   if (data.success === false) {
+    //     return dispatch(onFailure(data.error));
+    //   }
+    //
+    //   return dispatch(onSuccess(data));
+    // } catch (error) {
+    //   return dispatch(onFailure(error));
+    // }
   };
 }
 
@@ -51,9 +53,9 @@ export function postData(url, data, onSuccess, onFailure = requestDataFailure) {
   };
 }
 
-export function deleteData(url, onSuccess, onFailure = requestDataFailure) {
+export function deleteData(url, id, onSuccess, onFailure = requestDataFailure) {
   return (dispatch) => {
-    dispatch(requestData(url, 'delete', null, onSuccess, onFailure));
+    dispatch(requestData(url, 'delete', { id }, onSuccess, onFailure));
   };
 }
 

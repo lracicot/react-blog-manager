@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { autobind } from 'core-decorators';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
@@ -19,12 +20,22 @@ export class PostList extends Component {
    * @return {ReactComponent} Return the rendered component
    */
   render() {
-    const { data, columns, order } = this.props;
+    const {
+      data,
+      columns,
+      order,
+      deletePost,
+    } = this.props;
 
     return (
       <div>
         <h1>Posts</h1>
-        <UIList data={data} columns={columns} order={order} />
+        <UIList
+          data={data}
+          columns={columns}
+          order={order}
+          handleDelete={deletePost}
+        />
       </div>
     );
   }
@@ -46,4 +57,8 @@ const mapStateToProps = state => ({
   order: Map({ column: 'published_date', order: 'DESC' }),
 });
 
-export const PostListContainer = connect(mapStateToProps, PostActions)(PostList);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  deletePost: PostActions.deletePost,
+}, dispatch);
+
+export const PostListContainer = connect(mapStateToProps, mapDispatchToProps)(PostList);

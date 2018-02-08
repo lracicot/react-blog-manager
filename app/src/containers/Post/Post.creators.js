@@ -27,6 +27,6 @@ export function updatePost(post) {
 
 export function deletePost(postId) {
   return dispatch => dispatch(
-    deleteData(`${postTypes.POST_API.DELETE_POSTS_URL}/${postId}`, Actions.deletePostSuccess),
+    deleteData(`${postTypes.POST_API.DELETE_POSTS_URL}/${postId}`, postId, Actions.deletePostSuccess),
   );
 }

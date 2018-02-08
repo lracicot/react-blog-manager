@@ -24,7 +24,7 @@ class List extends PureComponent {
     this.setState({ order: Map({ column, order }) });
   }
 
-  buildList(data, columns, order) {
+  buildList(data, columns, order, handleDelete) {
     const headers = columns.map((col) => {
       let currentOrder = listTypes.sortedOrder.NONE;
       if (col.field === order.get('column')) {
@@ -65,7 +65,7 @@ class List extends PureComponent {
         >
           {cells}
           <UICell key={`cell_${item.get('id')}_actions`}>
-            <a href={`/posts/${item.get('id')}`}>[Details]</a>
+            <button onClick={() => { handleDelete(item.get('id')); }}>[Delete]</button>
             <a href={`/posts/${item.get('id')}/edit`}>[Edit]</a>
           </UICell>
         </UIRow>
@@ -76,7 +76,7 @@ class List extends PureComponent {
       <div className="backendui__list">
         <UIRow>
           {headers}
-          <Header key={`header_action`}>
+          <Header key="header_action">
             Actions
           </Header>
         </UIRow>
@@ -86,10 +86,10 @@ class List extends PureComponent {
   }
 
   render() {
-    const { data, columns } = this.props;
+    const { data, columns, handleDelete } = this.props;
     const { order } = this.state;
 
-    return this.buildList(data, columns, order);
+    return this.buildList(data, columns, order, handleDelete);
   }
 }
 
@@ -97,9 +97,11 @@ List.propTypes = {
   data: PropTypes.instanceOf(ImmutableList).isRequired,
   columns: PropTypes.instanceOf(ImmutableList).isRequired,
   order: PropTypes.instanceOf(Map).isRequired,
+  handleDelete: PropTypes.func,
 };
 
 List.defaultProps = {
+  handleDelete: () => {}
 };
 
 export default List;

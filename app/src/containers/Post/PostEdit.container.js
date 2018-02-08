@@ -19,7 +19,6 @@ export class PostEdit extends Component {
     console.log('values: ', values);
     const { post } = this.props;
     const jsPost = post.toJS();
-    debugger;
     PostActions.updatePost(jsPost);
   }
 
