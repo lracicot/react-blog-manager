@@ -7,7 +7,7 @@
   margin: 0 0 0 0;
   padding: 0; }
 
-.backendui__list__cell {
+.backendui__list__cell, .backendui__list__header {
   box-sizing: border-box;
   flex-grow: 1;
   width: 20%;
@@ -15,6 +15,10 @@
   overflow: hidden;
   list-style: none;
   border-bottom: solid 1px #aaa; }
+
+.backendui__list__header {
+  text-align: center;
+  font-weight: bold; }
 
 .backendui__list__row:nth-of-type(odd) {
   background: #fff; }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
 
 import { default as UIList } from '../List/components/List.component';
-import * as PostListActions from './PostList.creators';
+import * as PostActions from './Post.creators';
 
 /**
   * PostList - A component that show a list of all posts
@@ -41,9 +41,9 @@ PostList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  data: state.getIn(['data', 'posts']),
+  data: state.getIn(['app', 'data', 'posts']),
   columns: List.of({ field: 'title', header: 'Title' }, { field: 'published_date', header: 'Published date' }),
   order: Map({ column: 'published_date', order: 'DESC' }),
 });
 
-export const PostListContainer = connect(mapStateToProps, PostListActions)(PostList);
+export const PostListContainer = connect(mapStateToProps, PostActions)(PostList);

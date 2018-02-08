@@ -64,6 +64,10 @@ class List extends PureComponent {
           key={item.get('id')}
         >
           {cells}
+          <UICell key={`cell_${item.get('id')}_actions`}>
+            <a href={`/posts/${item.get('id')}`}>[Details]</a>
+            <a href={`/posts/${item.get('id')}/edit`}>[Edit]</a>
+          </UICell>
         </UIRow>
       );
     });
@@ -72,6 +76,9 @@ class List extends PureComponent {
       <div className="backendui__list">
         <UIRow>
           {headers}
+          <Header key={`header_action`}>
+            Actions
+          </Header>
         </UIRow>
         {list}
       </div>

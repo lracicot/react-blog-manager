@@ -10,13 +10,12 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: {
-    hot: 'react-hot-loader/patch',
     app: './src/app.js'
   },
   output: {
     filename: '[name].js',
     path: __dirname + '/public',
-    // publicPath: '/public/'
+    // publicPath: './'
   },
   devtool: 'source-map',
   module: {

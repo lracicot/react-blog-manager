@@ -20,7 +20,6 @@ export function retreivePosts() {
 }
 
 export function updatePost(post) {
-  console.log('POST: ', post);
   return dispatch => dispatch(
     postData(`${postTypes.POST_API.UPDATE_POSTS_URL}/${post.id}`, { post }, Actions.updatePostSuccess),
   );

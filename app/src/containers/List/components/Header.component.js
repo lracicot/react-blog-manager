@@ -32,8 +32,6 @@ class Header extends PureComponent {
     const { children, sortable } = this.props;
     let content;
 
-    console.log(`sorted ${this.props.columnName}: ${this.props.sorted}`);
-
     if (sortable) {
       content = (
         <span>
@@ -62,13 +60,15 @@ Header.propTypes = {
   sortable: PropTypes.bool,
   sorted: PropTypes.string,
   children: PropTypes.node.isRequired,
-  sortAction: PropTypes.func.isRequired,
-  columnName: PropTypes.string.isRequired,
+  sortAction: PropTypes.func,
+  columnName: PropTypes.string,
 };
 
 Header.defaultProps = {
   sortable: false,
   sorted: listTypes.sortedOrder.NONE,
+  sortAction: () => {},
+  columnName: null,
 };
 
 export default Header;

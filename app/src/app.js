@@ -11,6 +11,9 @@ import { setState } from './actions/app.actions';
 import Main from './containers/App/main.component';
 import App from './containers/App/app.component';
 
+require("babel-core/register");
+require("babel-polyfill");
+
 
 /**
   * Index - Open the application
