@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import PostForm from './PostForm.component';
+import { Breadcrumb } from 'react-bootstrap';
 
 import * as PostActions from './Post.creators';
 
@@ -29,6 +30,10 @@ export class PostEdit extends Component {
     return (
       <div>
         <h1>Posts</h1>
+        <Breadcrumb>
+          <Breadcrumb.Item href="/posts">Post List</Breadcrumb.Item>
+          <Breadcrumb.Item active>Edit</Breadcrumb.Item>
+        </Breadcrumb>
         <PostForm
           onSubmit={saveAction}
         />

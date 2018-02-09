@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { autobind } from 'core-decorators';
 import PropTypes from 'prop-types';
 import { List as ImmutableList, Map } from 'immutable';
-import { default as UIList } from './List.component';
 import { default as UIRow } from './Row.component';
 import { default as UICell } from './Cell.component';
 import Header from './Header.component';
@@ -65,8 +64,8 @@ class List extends PureComponent {
         >
           {cells}
           <UICell key={`cell_${item.get('id')}_actions`}>
-            <button onClick={() => { handleDelete(item.get('id')); }}>[Delete]</button>
-            <a href={`/posts/${item.get('id')}/edit`}>[Edit]</a>
+            <button className="btn btn-danger" onClick={() => { handleDelete(item.get('id')); }}>Delete</button>
+            <a className="btn btn btn-default" href={`/posts/${item.get('id')}/edit`}>Edit</a>
           </UICell>
         </UIRow>
       );
