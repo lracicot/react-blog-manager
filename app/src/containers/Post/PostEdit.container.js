@@ -17,9 +17,8 @@ import * as PostActions from './Post.creators';
 @autobind
 export class PostEdit extends Component {
   saveAction(values) {
-    const { post } = this.props;
-    const jsPost = post.toJS();
-    PostActions.updatePost(jsPost);
+    const { updatePost } = this.props;
+    updatePost(values.toJS());
   }
 
   render() {
@@ -35,6 +34,7 @@ export class PostEdit extends Component {
         </Breadcrumb>
         <PostForm
           onSubmit={saveAction}
+          entityId={post.get('id')}
         />
       </div>
     );
@@ -43,18 +43,17 @@ export class PostEdit extends Component {
 
 PostEdit.propTypes = {
   post: PropTypes.instanceOf(Map).isRequired,
+  updatePost: PropTypes.func,
 };
 
 PostEdit.defaultProps = {
-
+  updatePost: () => {},
 };
 
-const mapDispatchToProps = (dispatch) => {
-  const customActions = {
-    dispatch,
-  };
-  return Object.assign(customActions, bindActionCreators(PostActions, dispatch));
-};
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  updatePost: PostActions.updatePost,
+}, dispatch);
 
 const mapStateToProps = (state, ownProps) => ({
   post: state.getIn(['app', 'data', 'posts'])
