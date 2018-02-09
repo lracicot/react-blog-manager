@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
+import { Breadcrumb } from 'react-bootstrap';
 
 import { default as UIList } from '../List/components/List.component';
 import * as PostActions from './Post.creators';
@@ -30,6 +31,9 @@ export class PostList extends Component {
     return (
       <div>
         <h1>Posts</h1>
+        <Breadcrumb>
+          <Breadcrumb.Item active>Post List</Breadcrumb.Item>
+        </Breadcrumb>
         <UIList
           data={data}
           columns={columns}
