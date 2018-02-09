@@ -24,6 +24,7 @@ class PostForm extends Component {
           type="text"
           placeholder="Title"
           label="Title"
+          value={}
         />
         <Field
           name="published_date"
@@ -31,6 +32,7 @@ class PostForm extends Component {
           type="date"
           placeholder="Published date"
           label="Published date"
+          value={}
         />
         <Field
           name="content"
@@ -38,11 +40,12 @@ class PostForm extends Component {
           componentClass="textarea"
           placeholder="Enter text here..."
           label="Content"
+          value={}
         />
         <Button className="btn btn-primary" type="submit" disabled={pristine || submitting}>Submit</Button>
       </Form>
     );
-  };
+  }
 }
 
 PostForm.propTypes = {

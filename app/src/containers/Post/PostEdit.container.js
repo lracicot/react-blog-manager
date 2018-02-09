@@ -17,7 +17,6 @@ import * as PostActions from './Post.creators';
 @autobind
 export class PostEdit extends Component {
   saveAction(values) {
-    console.log('values: ', values);
     const { post } = this.props;
     const jsPost = post.toJS();
     PostActions.updatePost(jsPost);
