@@ -6,7 +6,7 @@ import { default as UIRow } from './Row.component';
 import { default as UICell } from './Cell.component';
 import Header from './Header.component';
 import style from './List.component.scss';
-import { listTypes } from '../../../consts';
+import { listTypes } from '../../consts';
 
 /**
   * List - A component that show a list
@@ -58,12 +58,14 @@ class List extends PureComponent {
         </UICell>
       ));
 
+      const id = item.has('id') ? item.get('id') : 0;
+
       return (
         <UIRow
-          key={item.get('id')}
+          key={id}
         >
           {cells}
-          <UICell key={`cell_${item.get('id')}_actions`}>
+          <UICell key={`cell_${id}_actions`}>
             <button className="btn btn-danger" onClick={() => { handleDelete(item.get('id')); }}>Delete</button>
             <a className="btn btn btn-default" href={`/posts/${item.get('id')}/edit`}>Edit</a>
           </UICell>
@@ -100,7 +102,7 @@ List.propTypes = {
 };
 
 List.defaultProps = {
-  handleDelete: () => {}
+  handleDelete: () => {},
 };
 
 export default List;

@@ -4,14 +4,14 @@ import { autobind } from 'core-decorators';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
-import PostForm from './PostForm.component';
 import { Breadcrumb } from 'react-bootstrap';
 
+import PostForm from './PostForm.component';
 import * as PostActions from './Post.creators';
 
 
 /**
-  * PostEdit - A component that show the details of a post
+  * PostEdit - A component that show a form to edit a post
   * @extends Component
   */
 @autobind

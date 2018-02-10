@@ -11,7 +11,7 @@ const validate = (values) => {
   const errors = {};
   if (!values.get('title')) {
     errors.title = 'Required';
-  } else if (values.get('title').length <= 5) {
+  } else if (values.get('title').length < 5) {
     errors.title = 'Must be at least 5 characters';
   }
   if (!values.get('published_date')) {
@@ -78,6 +78,11 @@ const form = reduxForm({
 export default connect(
   (state, props) => {
     const post = state.getIn(['app', 'data', 'posts']).find(p => p.get('id') === props.entityId);
+
+    if (!post) {
+      return {};
+    }
+
     return ({
       initialValues: {
         id: post.get('id'),

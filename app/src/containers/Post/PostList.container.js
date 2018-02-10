@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
 import { Breadcrumb } from 'react-bootstrap';
 
-import { default as UIList } from '../List/components/List.component';
+import { default as UIList } from '../../components/List/List.component';
 import * as PostActions from './Post.creators';
+import { PostCreateContainer } from './PostCreate.container';
 
 /**
   * PostList - A component that show a list of all posts
@@ -40,6 +41,7 @@ export class PostList extends Component {
           order={order}
           handleDelete={deletePost}
         />
+        <PostCreateContainer />
       </div>
     );
   }
@@ -49,10 +51,12 @@ PostList.propTypes = {
   data: PropTypes.instanceOf(List).isRequired,
   columns: PropTypes.instanceOf(List).isRequired,
   order: PropTypes.instanceOf(Map),
+  deletePost: PropTypes.func,
 };
 
 PostList.defaultProps = {
   order: Map({ column: 'id', order: 'DESC' }),
+  deletePost: () => {},
 };
 
 const mapStateToProps = state => ({

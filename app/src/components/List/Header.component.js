@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { autobind } from 'core-decorators';
 import PropTypes from 'prop-types';
 
-import { listTypes } from '../../../consts';
+import { listTypes } from '../../consts';
 
 
 /**
